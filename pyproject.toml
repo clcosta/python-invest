@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "pyinvest"
+version = "0.1.0"
+description = ""
+authors = ["Claudio Lima <claudio.filho@jurify.com.br>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pandas = "^1.5.3"
+httpx = "^0.23.3"
+
+
+[tool.poetry.group.dev.dependencies]
+ipython = "^8.11.0"
+pytest = "^7.2.1"
+mkdocs = "^1.4.2"
+mkdocs-material = "^9.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

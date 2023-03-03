@@ -1,0 +1,27 @@
+site_name: PyInvest
+repo_url: https://github.com/clcosta/pyinvest
+nav:
+  - User Guide: index.md
+  - Advanced: advanced.md
+  - Command Line Interface: cli.md
+theme:
+  name: material
+  favicon: ./images/logo.png
+  palette:
+  - scheme: default
+    primary: deep purple
+    toggle:
+        icon: material/weather-night
+        name: Dark Mode
+  - scheme: slate
+    primary: deep purple
+    toggle:
+        icon: material/weather-sunny
+        name: Light Mode
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.mark
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg

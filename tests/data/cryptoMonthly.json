@@ -1,0 +1,38 @@
+[
+  {
+    "direction_color": "greenFont",
+    "rowDate": "Feb 2023",
+    "rowDateRaw": 1675209600,
+    "rowDateTimestamp": "2023-02-01T00:00:00Z",
+    "last_close": "23,130.5",
+    "last_open": "23,124.7",
+    "last_max": "25,236.8",
+    "last_min": "21,418.7",
+    "volume": "9.09M",
+    "volumeRaw": 9094707,
+    "change_precent": "0.02",
+    "last_closeRaw": "23130.48046875000000",
+    "last_openRaw": "23124.74023437500000",
+    "last_maxRaw": "25236.75000000000000",
+    "last_minRaw": "21418.72265625000000",
+    "change_precentRaw": 0.023361407562812287
+  },
+  {
+    "direction_color": "greenFont",
+    "rowDate": "Jan 2023",
+    "rowDateRaw": 1672531200,
+    "rowDateTimestamp": "2023-01-01T00:00:00Z",
+    "last_close": "23,125.1",
+    "last_open": "16,537.5",
+    "last_max": "23,952.9",
+    "last_min": "16,499.7",
+    "volume": "8.98M",
+    "volumeRaw": 8976036,
+    "change_precent": "39.83",
+    "last_closeRaw": "23125.07812500000000",
+    "last_openRaw": "16537.54296875000000",
+    "last_maxRaw": "23952.85937500000000",
+    "last_minRaw": "16499.66601562500000",
+    "change_precentRaw": 39.83479472404157
+  }
+]
