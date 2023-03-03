@@ -1,14 +1,14 @@
-# PyInvest
+# Python Invest
 
-![PyInvest Logo](./docs/images/logo.png "PyInvest Logo")
+![Python Invest Logo](./docs/images/logo.png "Python Invest Logo")
 
 Financial data extraction with Python.
 
-The PyInvest package is based on an unofficial data extraction API from the website [Investing.com](https://www.investing.com/). It's a package inspired by the amazing [Investpy](https://github.com/alvarobartt/investpy) library.
+The Python Invest package is based on an unofficial data extraction API from the website [Investing.com](https://www.investing.com/). It's a package inspired by the amazing [Investpy](https://github.com/alvarobartt/investpy) library.
 
 <i>:warning:</i><b> This package consumes an unofficial open API and will validate the user's email before providing the data. After that, the user can consume all available services.</b>
 
-PyInvest its a Open Source package and Free to use, respecting the **MIT License**.
+Python Invest its a Open Source package and Free to use, respecting the **MIT License**.
 
 
 ## :material-list-status: Requirements
@@ -20,13 +20,13 @@ PyInvest its a Open Source package and Free to use, respecting the **MIT License
 - pip
 
 ```
-$ pip install pyinvest
+$ pip install python-invest
 ```
 
 - poetry
 
 ```
-poetry add pyinvest
+poetry add python-invest
 ```
 
 ---
@@ -36,7 +36,7 @@ poetry add pyinvest
 Getting historical **BTC** data:
 
 ```{.py3 linenums=1 hl_lines=5}
-from pyinvest import Invest
+from python_invest import Invest
 
 inv = Invest('youremail@email.com')
 

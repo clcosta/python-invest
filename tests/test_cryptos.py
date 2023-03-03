@@ -1,4 +1,4 @@
-from pyinvest import Invest
+from python_invest import Invest
 from .utils import get_data
 
 inv = Invest('secov14820@vootin.com')   # Temp mail

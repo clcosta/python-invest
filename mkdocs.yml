@@ -1,5 +1,5 @@
-site_name: PyInvest
-repo_url: https://github.com/clcosta/pyinvest
+site_name: Python Invest
+repo_url: https://github.com/clcosta/python-invest
 nav:
   - User Guide: index.md
   - Advanced: advanced.md
