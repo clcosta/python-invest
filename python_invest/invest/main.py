@@ -1,5 +1,5 @@
 from datetime import date
-from pyinvest.const import API_URL
+from python_invest.const import API_URL
 from .validators import validate_args
 from .utils import dict_to_url_params, convert_dates_to_str
 from .crypto import Crypto

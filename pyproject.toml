@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "pyinvest"
+name = "python-invest"
 version = "0.1.0"
 description = ""
 authors = ["Claudio Lima <clcostaf@hotmail.com>"]

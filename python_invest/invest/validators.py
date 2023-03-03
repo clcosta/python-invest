@@ -1,5 +1,5 @@
 from datetime import date
-from pyinvest.const import PRODUCT_LIST, TIME_FRAME_LIST
+from python_invest.const import PRODUCT_LIST, TIME_FRAME_LIST
 
 
 def validate_args(func):
