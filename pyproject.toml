@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "python-invest"
-version = "0.1.0"
-description = ""
+version = "0.1.1"
+description = "Package to financial data extraction with Python."
 authors = ["Claudio Lima <clcostaf@hotmail.com>"]
 readme = "README.md"
 
@@ -16,7 +16,12 @@ ipython = "^8.11.0"
 pytest = "^7.2.1"
 mkdocs = "^1.4.2"
 mkdocs-material = "^9.1.0"
+pre-commit = "^3.1.1"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.urls]
+"Documentation" = "https://pyinvest.readthedocs.io/en/latest/"
+"GitHub" = "https://github.com/clcosta/python-invest"
