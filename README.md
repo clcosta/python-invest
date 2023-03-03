@@ -10,6 +10,9 @@ The Python Invest package is based on an unofficial data extraction API from the
 
 Python Invest its a Open Source package and Free to use, respecting the **MIT License**.
 
+## :book: Documentation
+
+The oficial [Documentation](https://pyinvest.readthedocs.io/en/latest/).
 
 ## :material-list-status: Requirements
 
@@ -81,10 +84,6 @@ print(data)
 ```
 
 The default output is the [Pandas DataFrame](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html).
-
-## :book: Documentation
-
-The oficial [Documentation](https://pyinvest.readthedocs.io/en/latest/).
 
 ## :computer: Social Medias
 * [Instagram](https://www.instagram.com/claudiogfez/)
