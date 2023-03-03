@@ -2,7 +2,7 @@
 name = "pyinvest"
 version = "0.1.0"
 description = ""
-authors = ["Claudio Lima <claudio.filho@jurify.com.br>"]
+authors = ["Claudio Lima <clcostaf@hotmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
