@@ -81,3 +81,15 @@ print(data)
 ```
 
 The default output is the [Pandas DataFrame](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html).
+
+## :book: Documentation
+
+The oficial [Documentation](https://pyinvest.readthedocs.io/en/latest/).
+
+## :computer: Social Medias
+* [Instagram](https://www.instagram.com/claudiogfez/)
+* [Linkedin](https://www.linkedin.com/in/clcostaf/)
+
+# :technologist: Author
+| [<img src="https://avatars.githubusercontent.com/u/83929403?v=4" width=120><br><sub>@clcostaf</sub>](https://github.com/clcosta) |
+| :---: |
