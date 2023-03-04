@@ -23,5 +23,12 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.mark
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:materialx.emoji.twemoji
+plugins:
+- search
+- mkdocstrings:
+    handlers:
+      python:
+        import:
+        - https://docs.python-requests.org/en/master/objects.inv
