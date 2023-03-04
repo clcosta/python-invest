@@ -1,15 +1,27 @@
 __all__ = ['Crypto']
 
-import pandas as pd
-import httpx as req
-from httpx._exceptions import HTTPError
 from datetime import date
+
+import httpx as req
+import pandas as pd
+from httpx._exceptions import HTTPError
+
 from .utils import dict_to_url_params
 
 pd.options.mode.chained_assignment = None
 
 
 class Crypto:
+    """
+    The Crypto class will be used by the Invest class, the methods of the class will be accessed to obtain crypto area data.
+
+    Warning:
+        This class is not intended to be used directly.
+
+    Args:
+        invest_instance (Invest): An instance of the Invest class.
+    """
+
     def __init__(self, invest_instance):
         self.__invest_intance = invest_instance
 
@@ -24,6 +36,20 @@ class Crypto:
     ) -> dict | pd.DataFrame:
         """
         Get historical data from crypto, the return could be raw in dict or filtered DataFrame.
+
+        Note:
+            The `symbol` or `name` is required, if not provided, the method will return an error.
+
+        Args:
+            symbol (str, optional): The symbol of the crypto. Defaults to None.
+            from_date (str | date, optional): The start date of the historical data. Defaults to '01/01/2023'.
+            to_date (str | date, optional): The end date of the historical data. Defaults to '01/02/2023'.
+            name (str, optional): The name of the crypto. Defaults to None.
+            time_frame (str, optional): The time frame of the historical data. Defaults to 'Daily'.
+            as_dict (bool, optional): Whether to return the data as dict. Defaults to False.
+
+        Returns:
+            (dict | pd.DataFrame): The historical data.
         """
         if not any((symbol, name)):
             raise ValueError(
