@@ -42,6 +42,8 @@
       
     
     
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -71,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#classes-details" class="md-skip">
+        <a href="#python_invest.invest.Invest" class="md-skip">
           Skip to content
         </a>
       
@@ -257,8 +259,6 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           Advanced
@@ -275,8 +275,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -285,16 +283,42 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#invest" class="md-nav__link">
+  <a href="#python_invest.invest.Invest" class="md-nav__link">
     Invest
   </a>
+  
+    <nav class="md-nav" aria-label="Invest">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python_invest.invest.main.Invest.crypto" class="md-nav__link">
+    crypto
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#crypto" class="md-nav__link">
+  <a href="#python_invest.invest.crypto.Crypto" class="md-nav__link">
     Crypto
   </a>
+  
+    <nav class="md-nav" aria-label="Crypto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python_invest.invest.crypto.Crypto.get_historical_data" class="md-nav__link">
+    get_historical_data()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -338,8 +362,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -348,16 +370,42 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#invest" class="md-nav__link">
+  <a href="#python_invest.invest.Invest" class="md-nav__link">
     Invest
   </a>
+  
+    <nav class="md-nav" aria-label="Invest">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python_invest.invest.main.Invest.crypto" class="md-nav__link">
+    crypto
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#crypto" class="md-nav__link">
+  <a href="#python_invest.invest.crypto.Crypto" class="md-nav__link">
     Crypto
   </a>
+  
+    <nav class="md-nav" aria-label="Crypto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python_invest.invest.crypto.Crypto.get_historical_data" class="md-nav__link">
+    get_historical_data()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -379,35 +427,343 @@
   
 
 
-<h1 id="classes-details">Classes details</h1>
-<h2 id="invest">Invest</h2>
-<p><h4>Invest(email: str)</h4><legend>python_invest.invest.main.Invest</legend></p>
+  <h1>Advanced</h1>
 
-<p>The Invest class is the main class that will be used to interact with all project. Note the email address is <strong>required</strong>.</p>
-<ul>
-<li>
-<p><strong>email</strong>: <em>str</em>: The email address of the user, if necessary the API will send a verification link to this email address.</p>
-</li>
-<li>
-<p><strong>crypto</strong>: <a href="#crypto">Crypto</a>: The crypto attribute is used to interact with the Crypto class and he's methods, passing the Invest object instance to Crypto class.</p>
-</li>
-</ul>
-<h2 id="crypto">Crypto</h2>
-<p><h4>Crypto(invest_instance: <a href="#invest"><i>Invest</i></a>)</h4><legend>python_invest.invest.crypto.Crypto</legend></p>
+<p>Advanced details about the classes and attributes.</p>
 
-<p>The Crypto class will be used by the Invest class, the methods of the class will be accessed to obtain crypto area data. In <em>Investing</em> website is the <strong>crypto products</strong>.</p>
-<ul>
-<li>
-<p><em>method</em> <strong>get_historical_data</strong> -&gt; <small>dict | pandas.DataFrame</small></p>
-<p><strong>symbol</strong>: <em>str</em> = None<br />
-<strong>from_date</strong>: <em>str</em> | <em>datetime.date</em> = '01/01/2023'<br />
-<strong>to_date</strong>: <em>str</em> | <em>datetime.date</em> = '01/02/2023'<br />
-<strong>name</strong>: <em>str</em> = None<br />
-<strong>time_frame</strong>: <em>str</em> = 'Daily'<br />
-<strong>as_dict</strong>: <em>bool</em> = False</p>
-</li>
-</ul>
-<p><strong>Note</strong>: The date is expected in this format: <strong>m/d/Y</strong></p>
+
+<div class="doc doc-object doc-module">
+
+
+
+  <div class="doc doc-contents first">
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="python_invest.invest.Invest" class="doc doc-heading">
+        <code>Invest</code>
+
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+
+  
+      <p>The Invest class is the main class that will be used to interact with all invest module.</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>email</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>The email of the user to receive validation API Link.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="python_invest.invest.main.Invest.crypto" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">crypto</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>The crypto property is used to interact with the Crypto class.</p>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><a class="autorefs autorefs-internal" title="python_invest.invest.crypto.Crypto" href="#python_invest.invest.crypto.Crypto">Crypto</a></code>
+          </td>
+          <td><p>The Crypto class instance.</p></td>
+        </tr>
+    </tbody>
+  </table>
+  </div>
+
+</div>
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+  <div class="doc doc-contents first">
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="python_invest.invest.crypto.Crypto" class="doc doc-heading">
+        <code>Crypto</code>
+
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+
+  
+      <p>The Crypto class will be used by the Invest class, the methods of the class will be accessed to obtain crypto area data.</p>
+
+<details class="warning">
+  <summary>Warning</summary>
+  <p>This class is not intended to be used directly.</p>
+</details>
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>invest_instance</code></td>
+          <td>
+                <code><a class="autorefs autorefs-internal" title="python_invest.invest.main.Invest" href="#python_invest.invest.Invest">Invest</a></code>
+          </td>
+          <td><p>An instance of the Invest class.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="python_invest.invest.crypto.Crypto.get_historical_data" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">get_historical_data</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Get historical data from crypto, the return could be raw in dict or filtered DataFrame.</p>
+
+<details class="note">
+  <summary>Note</summary>
+  <p>The <code>symbol</code> or <code>name</code> is required, if not provided, the method will return an error.</p>
+</details>
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>symbol</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>The symbol of the crypto. Defaults to None.</p></td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>from_date</code></td>
+          <td>
+                <code>str | <span title="datetime.date">date</span></code>
+          </td>
+          <td><p>The start date of the historical data. Defaults to '01/01/2023'.</p></td>
+          <td>
+                <code>&#39;01/01/2023&#39;</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>to_date</code></td>
+          <td>
+                <code>str | <span title="datetime.date">date</span></code>
+          </td>
+          <td><p>The end date of the historical data. Defaults to '01/02/2023'.</p></td>
+          <td>
+                <code>&#39;01/02/2023&#39;</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>name</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>The name of the crypto. Defaults to None.</p></td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>time_frame</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>The time frame of the historical data. Defaults to 'Daily'.</p></td>
+          <td>
+                <code>&#39;Daily&#39;</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>as_dict</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td><p>Whether to return the data as dict. Defaults to False.</p></td>
+          <td>
+                <code>False</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>dict | <span title="pandas">pd</span>.<span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td><p>The historical data.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
 
 
 
