@@ -125,6 +125,12 @@ class Crypto:
         return df
 
     def get_list(self) -> list:
+        """
+        Get the list of cryptos.
+
+        Returns:
+            (list[dict]): The return will be a list of `name`, `symbol` and `tag` of the cryptos.
+        """
         url = FB_BASE_URL + FB_CRYPTO_DOC_ID
         response = req.get(url)
         if response.status_code != 200:
