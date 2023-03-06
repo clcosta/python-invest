@@ -6,6 +6,9 @@ import httpx as req
 import pandas as pd
 from httpx._exceptions import HTTPError
 
+from python_invest.const import FB_BASE_URL, FB_CRYPTO_DOC_ID
+
+from .firebase import parser
 from .utils import dict_to_url_params
 
 pd.options.mode.chained_assignment = None
@@ -69,6 +72,13 @@ class Crypto:
         new_args = dict_to_url_params(data)
         url += f'&{new_args}'
         res = req.get(url)
+        if res.text.lower() in (
+            'email verification sent.',
+            'email address not verified.',
+        ):
+            raise PermissionError(
+                'The Scrapper API sent to your email address the verification link. Please verify your email before run the code again.'
+            )
         match res.status_code:
             case 400 | 404 | 401:
                 raise HTTPError(
@@ -83,16 +93,10 @@ class Crypto:
                     raise HTTPError(
                         f'Unknown error. {res.status_code}: {res.text}'
                     )
-        if res.text.lower() in (
-            'email verification sent.',
-            'email address not verified.',
-        ):
-            raise PermissionError(
-                'The Scrapper API sent to your email address the verification link. Please verify your email before run the code again.'
-            )
+        res_json = res.json()['data']
         if as_dict:
-            return res.json()['data']
-        raw_df = pd.DataFrame(res.json()['data'])
+            return res_json
+        raw_df = pd.DataFrame(res_json)
         df = raw_df[
             [
                 'last_close',
@@ -119,3 +123,21 @@ class Crypto:
             pd.to_datetime(raw_df.rowDateTimestamp)
         ).dt.strftime('%m/%d/%Y')
         return df
+
+    def get_list(self) -> list:
+        """
+        Get the list of cryptos.
+
+        Returns:
+            (list[dict]): The return will be a list of `name`, `symbol` and `tag` of the cryptos.
+        """
+        url = FB_BASE_URL + FB_CRYPTO_DOC_ID
+        response = req.get(url)
+        if response.status_code != 200:
+            raise ValueError(
+                f'Failure in get crypto list. {response.status_code}: {response.text}'
+            )
+        data = response.json()['fields']['data']['arrayValue'][
+            'values'
+        ]  # pre defined in firebase
+        return parser(data)
