@@ -3,159 +3,69 @@ import pytest
 
 from python_invest import Invest
 
-from .utils import get_data
+intervals = ['Daily', 'Monthly', 'Weekly']
+intervals_kwargs = [
+    {
+        'symbol': 'BTC',
+        'from_date': '01/01/2023',
+        'to_date': '01/02/2023',
+        'as_dict': False,
+        'time_frame': 'Daily',
+    },
+    {
+        'symbol': 'BTC',
+        'from_date': '01/01/2023',
+        'to_date': '02/01/2023',
+        'as_dict': False,
+        'time_frame': 'Monthly',
+    },
+    {
+        'symbol': 'BTC',
+        'from_date': '01/01/2023',
+        'to_date': '01/31/2023',
+        'as_dict': False,
+        'time_frame': 'Weekly',
+    },
+]
+params = list(zip(intervals, intervals_kwargs))
 
-inv = Invest('secov14820@vootin.com')   # Temp mail
 
-
-class TestDailyData:
-
-    expected_asdict, expected_asdf = get_data('Daily')
-
-    def test_crypto_historical_data_symbol_asdf(self):
-
-        data = inv.crypto.get_historical_data(
-            symbol='BTC',
-            from_date='01/01/2023',
-            to_date='01/02/2023',
-            as_dict=False,
-        ).sort_values('Date')
-        assert data.to_dict() == self.expected_asdf.to_dict()
-
-    def test_crypto_historical_data_symbol_asdict(self):
-
-        data = inv.crypto.get_historical_data(
-            symbol='BTC',
-            from_date='01/01/2023',
-            to_date='01/02/2023',
-            as_dict=True,
+@pytest.mark.parametrize('interval,interval_kwargs', params, scope='class')
+class TestHistoricalDataWithPreCachedData:
+    def test_crypto_historical_data_using_symbol_expected_asdf(
+        self, inv, interval_data, interval_kwargs
+    ):
+        data = inv.crypto.get_historical_data(**interval_kwargs).sort_values(
+            'Date'
         )
-        assert data == self.expected_asdict
+        assert data.equals(interval_data.expected_asdf)
 
-    def test_crypto_historical_data_name(self):
+    def test_crypto_historical_data_using_symbol_expected_asdict(
+        self, inv, interval_data, interval_kwargs
+    ):
+        kwargs = interval_kwargs.copy()
+        kwargs['as_dict'] = True
+        data = inv.crypto.get_historical_data(**kwargs)
+        assert data == interval_data.expected_asdict
 
-        data = (
-            inv.crypto.get_historical_data(
-                name='bitcoin',
-                from_date='01/01/2023',
-                to_date='01/02/2023',
-                as_dict=False,
-            )
-            .sort_values('Date')
-            .sort_values('Date')
-        )
-        assert data.to_dict() == self.expected_asdf.to_dict()
+    def test_crypto_historical_data_using_name_expected_asdf(
+        self, inv, interval_data, interval_kwargs
+    ):
+        kwargs = interval_kwargs.copy()
+        kwargs.update({'symbol': None, 'name': 'bitcoin'})
+        data = inv.crypto.get_historical_data(**kwargs).sort_values('Date')
+        assert data.equals(interval_data.expected_asdf)
 
-    def test_crypto_historical_data_name_asdict(self):
-
-        data = inv.crypto.get_historical_data(
-            name='bitcoin',
-            from_date='01/01/2023',
-            to_date='01/02/2023',
-            as_dict=True,
-        )
-        assert data == self.expected_asdict
-
-
-class TestMonthlyData:
-
-    expected_asdict, expected_asdf = get_data('Monthly')
-
-    def test_crypto_historical_data_symbol_asdf(self):
-
-        data = inv.crypto.get_historical_data(
-            symbol='BTC',
-            from_date='01/01/2023',
-            to_date='02/01/2023',
-            as_dict=False,
-            time_frame='Monthly',
-        ).sort_values('Date')
-        assert data.to_dict() == self.expected_asdf.to_dict()
-
-    def test_crypto_historical_data_symbol_asdict(self):
-
-        data = inv.crypto.get_historical_data(
-            symbol='BTC',
-            from_date='01/01/2023',
-            to_date='02/01/2023',
-            as_dict=True,
-            time_frame='Monthly',
-        )
-        assert data == self.expected_asdict
-
-    def test_crypto_historical_data_name(self):
-
-        data = inv.crypto.get_historical_data(
-            name='bitcoin',
-            from_date='01/01/2023',
-            to_date='02/01/2023',
-            as_dict=False,
-            time_frame='Monthly',
-        ).sort_values('Date')
-        assert data.to_dict() == self.expected_asdf.to_dict()
-
-    def test_crypto_historical_data_name_asdict(self):
-
-        data = inv.crypto.get_historical_data(
-            name='bitcoin',
-            from_date='01/01/2023',
-            to_date='02/01/2023',
-            as_dict=True,
-            time_frame='Monthly',
-        )
-        assert data == self.expected_asdict
+    def test_crypto_historical_data_using_name_expected_asdict(
+        self, inv, interval_data, interval_kwargs
+    ):
+        kwargs = interval_kwargs.copy()
+        kwargs.update({'symbol': None, 'name': 'bitcoin', 'as_dict': True})
+        data = inv.crypto.get_historical_data(**kwargs)
+        assert data == interval_data.expected_asdict
 
 
-class TestWeeklyData:
-
-    expected_asdict, expected_asdf = get_data('Weekly')
-
-    def test_crypto_historical_data_symbol_asdf(self):
-
-        data = inv.crypto.get_historical_data(
-            symbol='BTC',
-            from_date='01/01/2023',
-            to_date='01/31/2023',
-            as_dict=False,
-            time_frame='Weekly',
-        ).sort_values('Date')
-        assert data.to_dict() == self.expected_asdf.to_dict()
-
-    def test_crypto_historical_data_symbol_asdict(self):
-
-        data = inv.crypto.get_historical_data(
-            symbol='BTC',
-            from_date='01/01/2023',
-            to_date='01/31/2023',
-            as_dict=True,
-            time_frame='Weekly',
-        )
-        assert data == self.expected_asdict
-
-    def test_crypto_historical_data_name(self):
-
-        data = inv.crypto.get_historical_data(
-            name='bitcoin',
-            from_date='01/01/2023',
-            to_date='01/31/2023',
-            as_dict=False,
-            time_frame='Weekly',
-        ).sort_values('Date')
-        assert data.to_dict() == self.expected_asdf.to_dict()
-
-    def test_crypto_historical_data_name_asdict(self):
-
-        data = inv.crypto.get_historical_data(
-            name='bitcoin',
-            from_date='01/01/2023',
-            to_date='01/31/2023',
-            as_dict=True,
-            time_frame='Weekly',
-        )
-        assert data == self.expected_asdict
-
-
-class TestBasics:
+class TestBasicsListCryptoAndOtherArguments:
 
     start_crypto_list = [
         {'tag': '0chain', 'name': '0Chain', 'symbol': 'ZCN'},
@@ -166,22 +76,26 @@ class TestBasics:
         {'symbol': 'AAVE', 'tag': 'aave', 'name': 'Aave'},
     ]
 
-    def test_crypto_list(self):
+    def test_start_six_items_of_crypto_list_in_firebase_equals_to_start_of_crypto_list(
+        self, inv
+    ):
         assert inv.crypto.get_list()[:6] == self.start_crypto_list
 
-    def test_empty_symbol_and_name(self):
+    def test_empty_symbol_and_name(self, inv):
         error_msg = 'Necessary crypto indentifier. Please provide a crypto Symbol or name.'
         with pytest.raises(ValueError, match=error_msg):
             inv.crypto.get_historical_data(symbol=None, name=None)
 
-    def test_bad_email(self):
-        instance = Invest('your@email.com')
+    @pytest.mark.parametrize('inv', [Invest('your@email.com')])
+    def test_bad_email(self, inv):
         error_msg = 'Failure in get crypto data. Bad request. 401: Please specify a valid email address in "email='
         with pytest.raises(httpx.HTTPError, match=error_msg):
-            instance.crypto.get_historical_data(symbol='BTC')
+            inv.crypto.get_historical_data(symbol='BTC')
 
-    def test_sent_mail_to_valid_email(self):
-        instance = Invest('pyinvest@gmail.com')
+    @pytest.mark.parametrize(
+        'inv', [Invest('pyinvest@gmail.com')]
+    )   # This is a fictional but valid email
+    def test_sent_mail_to_valid_email(self, inv):
         error_msg = 'The Scrapper API sent to your email address the verification link. Please verify your email before run the code again.'
         with pytest.raises(PermissionError, match=error_msg):
-            instance.crypto.get_historical_data(symbol='BTC')
+            inv.crypto.get_historical_data(symbol='BTC')
