@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "python-invest"
-version = "0.1.1"
+version = "0.2.0"
 description = "Package to financial data extraction with Python."
 authors = ["Claudio Lima <clcostaf@hotmail.com>"]
 readme = "README.md"
