@@ -1,7 +1,8 @@
 __all__ = ['get_data']
 
-import os
 import json
+import os
+
 import pandas as pd
 
 pd.options.mode.chained_assignment = None
