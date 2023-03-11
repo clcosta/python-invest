@@ -1,5 +1,6 @@
 site_name: Python Invest
 repo_url: https://github.com/clcosta/python-invest
+repo_name: clcsota/python-invest
 nav:
   - User Guide: index.md
   - Advanced: advanced.md
@@ -22,6 +23,7 @@ markdown_extensions:
   - pymdownx.highlight
   - pymdownx.superfences
   - pymdownx.mark
+  - attr_list
   - pymdownx.emoji:
       emoji_generator: !!python/name:materialx.emoji.to_svg
       emoji_index: !!python/name:materialx.emoji.twemoji
@@ -32,3 +34,8 @@ plugins:
       python:
         import:
         - https://docs.python-requests.org/en/master/objects.inv
+extra_css:
+  - ./stylesheets/extra.css
+
+watch:
+   - python_invest

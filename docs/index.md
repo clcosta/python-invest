@@ -1,6 +1,6 @@
 # Python Invest
 
-![Python Invest Logo](./images/logo.png "Python Invest Logo")
+![Python Invest Logo](./images/logo.png "Python Invest Logo"){ width="300" .center }
 
 Financial data extraction with Python.
 
