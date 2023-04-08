@@ -4,7 +4,7 @@ repo_name: clcsota/python-invest
 nav:
   - User Guide: index.md
   - Advanced: advanced.md
-  - Command Line Interface: cli.md
+  - Command Line Interface: CLI/cli.md
 theme:
   name: material
   favicon: ./images/logo.png
