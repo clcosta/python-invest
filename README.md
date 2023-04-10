@@ -45,8 +45,8 @@ inv = Invest('youremail@email.com')
 
 data = inv.crypto.get_historical_data(
         symbol='BTC',
-        from_date='01/01/2023',
-        to_date='01/02/2023'
+        from_date='2023-01-01',
+        to_date='2023-02-01'
     )
 ```
 
@@ -55,7 +55,7 @@ The API can send a verification link to your email, it's a security measure you 
 ```{hl_lines="3 5"}
 Traceback (most recent call last):
  File "...", line 5, in <module>
-    data = inv.crypto.get_historical_data(symbol='BTC', from_date='01/01/2023', to_date='01/02/2023')
+    data = inv.crypto.get_historical_data(symbol='BTC', from_date='2023-01-01', to_date='2023-02-01')
     ...
 PermissionError: The Scrapper API sent to your email address the verification link. Please verify your email before run the code again.
 ```
@@ -71,8 +71,8 @@ After that, you can run the code:
 ```{.py3 linenums=5}
 data = inv.crypto.get_historical_data(
         symbol='BTC',
-        from_date='01/01/2023',
-        to_date='01/02/2023'
+        from_date='2023-01-01',
+        to_date='2023-02-01'
     )
 
 print(data)
@@ -84,6 +84,29 @@ print(data)
 ```
 
 The default output is the [Pandas DataFrame](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html).
+
+## :keyboard: CLI
+
+```bash
+pinv --help
+```
+
+---
+
+**Example**:
+
+```bash
+pinv crypto historical BTC --date-in '2023-01-01' --date-out '2023-04-01' --time-frame 'Monthly'
+```
+```
+                            TABLE OF HISTORICAL DATA
+┏━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━━━┓
+┃ Price    ┃ Open     ┃ High     ┃ Low      ┃ Vol     ┃ Change ┃ Date       ┃
+┡━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━╇━━━━━━━━━━━━┩
+│ 23,130.5 │ 23,124.7 │ 25,236.8 │ 21,418.7 │ 9094707 │ 0.02   │ 02/01/2023 │
+│ 23,125.1 │ 16,537.5 │ 23,952.9 │ 16,499.7 │ 8976036 │ 39.83  │ 01/01/2023 │
+└──────────┴──────────┴──────────┴──────────┴─────────┴────────┴────────────┘
+```
 
 ## :computer: Social Medias
 * [Instagram](https://www.instagram.com/claudiogfez/)

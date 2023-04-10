@@ -6,7 +6,8 @@ Financial data extraction with Python.
 
 The Python Invest package is based on an unofficial data extraction API from the website [Investing.com](https://www.investing.com/). It's a package inspired by the amazing [Investpy](https://github.com/alvarobartt/investpy) library.
 
-<i>:warning:</i><b> This package consumes an unofficial open API and will validate the user's email before providing the data. After that, the user can consume all available services.</b>
+!!! warning ""
+    This package consumes an unofficial open API and will validate the user's email before providing the data. After that, the user can consume all available services.</b>
 
 Python Invest its a Open Source package and Free to use, respecting the **MIT License**.
 
@@ -20,7 +21,7 @@ Python Invest its a Open Source package and Free to use, respecting the **MIT Li
 - pip
 
 ```
-$ pip install python-invest
+pip install python-invest
 ```
 
 - poetry
@@ -42,8 +43,8 @@ inv = Invest('youremail@email.com')
 
 data = inv.crypto.get_historical_data(
         symbol='BTC',
-        from_date='01/01/2023',
-        to_date='01/02/2023'
+        from_date='2023-01-01',
+        to_date='2023-02-01'
     )
 ```
 
@@ -52,7 +53,7 @@ The API can send a verification link to your email, it's a security measure you 
 ```{hl_lines="3 5"}
 Traceback (most recent call last):
  File "...", line 5, in <module>
-    data = inv.crypto.get_historical_data(symbol='BTC', from_date='01/01/2023', to_date='01/02/2023')
+    data = inv.crypto.get_historical_data(symbol='BTC', from_date='2023-01-01', to_date='2023-02-01')
     ...
 PermissionError: The Scrapper API sent to your email address the verification link. Please verify your email before run the code again.
 ```
@@ -61,23 +62,23 @@ If you get this error: **Just open your email box and click on the verification 
 
 The email would be a equal this:
 
-![Verification Email Link](./images/emailValidation.png "Verification Email Link")
+![Verification Email Link](./images/emailValidation.png "Verification Email Link"){ width="700" .center .shadow }
 
 After that, you can run the code:
 
 ```{.py3 linenums=5}
 data = inv.crypto.get_historical_data(
         symbol='BTC',
-        from_date='01/01/2023',
-        to_date='01/02/2023'
+        from_date='2023-01-01',
+        to_date='2023-02-01'
     )
 
 print(data)
 ```
 ```
       Price      Open      High       Low     Vol Change        Date
-0  16,674.3  16,618.4  16,766.9  16,551.0  136027   0.34  01/02/2023
-1  16,618.4  16,537.5  16,621.9  16,499.7  107837   0.49  01/01/2023
+0  16,674.3  16,618.4  16,766.9  16,551.0  136027   0.34  2023-02-01
+1  16,618.4  16,537.5  16,621.9  16,499.7  107837   0.49  2023-01-01
 ```
 
 The default output is the [Pandas DataFrame](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html).
