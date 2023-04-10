@@ -1,30 +1,25 @@
-import re
-
-import httpx
 import pytest
-
-from python_invest import Invest
 
 intervals = ['Daily', 'Monthly', 'Weekly']
 intervals_kwargs = [
     {
         'symbol': 'BTC',
-        'from_date': '01/01/2023',
-        'to_date': '01/02/2023',
+        'from_date': '2023-01-01',
+        'to_date': '2023-01-02',
         'as_dict': False,
         'time_frame': 'Daily',
     },
     {
         'symbol': 'BTC',
-        'from_date': '01/01/2023',
-        'to_date': '02/01/2023',
+        'from_date': '2023-01-01',
+        'to_date': '2023-02-01',
         'as_dict': False,
         'time_frame': 'Monthly',
     },
     {
         'symbol': 'BTC',
-        'from_date': '01/01/2023',
-        'to_date': '01/31/2023',
+        'from_date': '2023-01-01',
+        'to_date': '2023-01-31',
         'as_dict': False,
         'time_frame': 'Weekly',
     },

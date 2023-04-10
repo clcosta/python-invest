@@ -1,7 +1,8 @@
 __all__ = ['get_data']
 
-import os
 import json
+import os
+
 import pandas as pd
 
 pd.options.mode.chained_assignment = None
@@ -39,6 +40,6 @@ def get_data(time_frame: str) -> tuple[dict, pd.DataFrame]:
     )
     expected_asdf['Date'] = pd.to_datetime(
         pd.to_datetime(__raw_df.rowDateTimestamp)
-    ).dt.strftime('%m/%d/%Y')
+    ).dt.strftime('%Y-%m-%d')
     expected_asdf.sort_values('Date', inplace=True)
     return expected_asdict, expected_asdf

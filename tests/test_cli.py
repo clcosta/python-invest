@@ -1,5 +1,4 @@
 import pandas as pd
-from pytest import mark
 from typer.testing import CliRunner
 
 from python_invest.cli import cli
