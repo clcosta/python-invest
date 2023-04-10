@@ -31,8 +31,8 @@ class Crypto:
     def get_historical_data(
         self,
         symbol: str = None,
-        from_date: str | date = '01/01/2023',
-        to_date: str | date = '01/02/2023',
+        from_date: str | date = '2023-01-01',
+        to_date: str | date = '2023-02-01',
         name: str = None,
         time_frame: str = 'Daily',
         as_dict: bool = False,
@@ -45,8 +45,8 @@ class Crypto:
 
         Args:
             symbol (str, optional): The symbol of the crypto. Defaults to None.
-            from_date (str | date, optional): The start date of the historical data. Defaults to '01/01/2023'.
-            to_date (str | date, optional): The end date of the historical data. Defaults to '01/02/2023'.
+            from_date (str | date, optional): The start date of the historical data. Defaults to '2023-01-01'.
+            to_date (str | date, optional): The end date of the historical data. Defaults to '2023-02-01'.
             name (str, optional): The name of the crypto. Defaults to None.
             time_frame (str, optional): The time frame of the historical data. Defaults to 'Daily'.
             as_dict (bool, optional): Whether to return the data as dict. Defaults to False.
@@ -121,7 +121,7 @@ class Crypto:
         )
         df['Date'] = pd.to_datetime(
             pd.to_datetime(raw_df.rowDateTimestamp)
-        ).dt.strftime('%m/%d/%Y')
+        ).dt.strftime('%Y-%m-%d')
         return df
 
     def get_list(self) -> list:

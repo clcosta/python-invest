@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, datetime
 
 from python_invest.const import PRODUCT_LIST, TIME_FRAME_LIST
 
@@ -25,18 +25,18 @@ def validate_args(func):
             )
         if not isinstance(from_date, (str, date)):
             raise TypeError(
-                f'Argument from_date must be a string containning a date in format m/d/Y or date. Got a "{type(from_date)}"'
+                f'Argument from_date must be a string containning a date in format Y-m-d or date. Got a "{type(from_date)}"'
             )
         if not isinstance(to_date, (str, date)):
             raise TypeError(
-                f'Argument to_date must be a string containning a date in format m/d/Y or date. Got a "{type(from_date)}"'
+                f'Argument to_date must be a string containning a date in format Y-m-d or date. Got a "{type(from_date)}"'
             )
         return func(*args, **kwargs)
 
     return wrapper
 
 
-def validate_date_in_out(from_date: date, to_date: date) -> None:
+def validate_date_in_out(from_date: datetime, to_date: datetime) -> None:
     """
     Validate if the date in (from_date) and date out (to_date) is valid.
 
