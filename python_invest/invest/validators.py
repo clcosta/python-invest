@@ -1,4 +1,5 @@
 from datetime import date
+
 from python_invest.const import PRODUCT_LIST, TIME_FRAME_LIST
 
 
@@ -33,3 +34,16 @@ def validate_args(func):
         return func(*args, **kwargs)
 
     return wrapper
+
+
+def validate_date_in_out(from_date: date, to_date: date) -> None:
+    """
+    Validate if the date in (from_date) and date out (to_date) is valid.
+
+    Raises:
+        ValueError: If the date in (from_date) is greater then date out (to_date).
+    """
+    if from_date > to_date:
+        raise ValueError(
+            f'The start date "{from_date}" is greater then final date "{to_date}".'
+        )
