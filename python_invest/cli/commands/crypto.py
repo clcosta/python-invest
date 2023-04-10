@@ -31,7 +31,9 @@ def _load_email(email):
         conf = load_config()
     except FileNotFoundError as er:
         if not email:
-            raise ValueError('[bold]Email is not set![/]')
+            raise ValueError(
+                'Email is not set! Please config the API or provied value in email option!'
+            )
     email = email if email else conf['EMAIL']
     return email
 
@@ -76,20 +78,20 @@ def historical_data(
         ...,
         help='The symbol of the crypto.',
     ),
-    name: str = typer.Argument(
+    name: str = typer.Option(
         None,
         help='The name of the crypto.',
     ),
-    time_frame: str = typer.Argument(
+    time_frame: str = typer.Option(
         'Monthly',
         help='The time frame of the historical data.',
         autocompletion=lambda: ['Daily', 'Weekly', 'Monthly'],
     ),
-    date_in: str = typer.Argument(
+    date_in: str = typer.Option(
         datetime(year=2020, month=1, day=1).strftime('%d/%m/%Y'),
         help='The date of the start historical data.',
     ),
-    date_out: str = typer.Argument(
+    date_out: str = typer.Option(
         datetime.now().strftime('%d/%m/%Y'),
         help='The date of the end historical data.',
     ),
