@@ -20,4 +20,6 @@ FB_CRYPTO_DOC_ID = 'crypto/IEVxWEmy32J3FDlvq9Cj'
 BASE_EMAIL = os.getenv('BASE_EMAIL', default='youremail@email.com')
 
 # CONFIG PATH
-CONFIG_PATH = os.getenv('CONFIG_PATH', default='./pinv.yaml')
+CONFIG_PATH = os.getenv(
+    'CONFIG_PATH', default=os.path.join(BASE_PATH, 'pinv.ini')
+)

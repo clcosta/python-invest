@@ -5,9 +5,9 @@ from pathlib import Path
 from rich.console import Console
 from rich.prompt import Confirm
 
-from python_invest.const import BASE_PATH
+from python_invest.const import CONFIG_PATH
 
-base_config_path = Path(BASE_PATH) / 'pinv.ini'
+base_config_path = Path(CONFIG_PATH)
 
 
 def load_config(
